@@ -48,9 +48,9 @@ int is_valid(Node* n){
    for (i = 0;i < 9; i++)
    {
       int *fila = (int *) calloc (10, sizeof (int));
+      int *columna = (int *) calloc (10, sizeof (int));
       for (j = 0;j < 9; j++)
       {
-         int *columna = (int *) calloc (10, sizeof (int));
          if (n->sudo[i][j] != 0)
          {
             if (fila[n->sudo[i][j]] == 1)
