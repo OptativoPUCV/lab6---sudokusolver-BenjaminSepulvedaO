@@ -44,7 +44,27 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-
+  int i,j,k;
+   for (i=0; i<9; i++)
+   {
+      int *fila = (int *) calloc (10, sizeof (int));
+      int *columna = (int *) calloc (10, sizeof (int));
+      for (j=0; j<9; j++)
+      {
+         if (n->sudo[i][j] != 0)
+         {
+            if (fila[n->sudo[i][j]] == 1)
+               return 0;
+            fila[n->sudo[i][j]] = 1;
+         }
+         if (n->sudo[j][i] != 0)
+         {
+            if (columna[n->sudo[j][i]] == 1)
+               return 0;
+            columna[n->sudo[j][i]] = 1;
+         }
+      }
+   }
     return 1;
 }
 
@@ -60,12 +80,12 @@ List* get_adj_nodes(Node* n){
          {
             int k = 1;
             while (k<10)
-               {
-                  Node* adj=copy(n);
-                  adj->sudo[i][j]=k;
-                  pushBack(list,adj);
-                  k++;
-               }
+            {
+               Node* adj=copy(n);
+               adj->sudo[i][j]=k;
+               pushBack(list,adj);
+               k++;
+            }
          }
       }
    }
