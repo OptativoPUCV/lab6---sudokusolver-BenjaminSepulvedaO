@@ -62,7 +62,7 @@ List* get_adj_nodes(Node* n){
             while (k<10)
                {
                   Node* adj=copy(n);
-                  adj->sudo[i][j]=1;
+                  adj->sudo[i][j]=k;
                   pushBack(list,adj);
                   k++;
                }
